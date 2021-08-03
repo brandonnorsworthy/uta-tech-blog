@@ -50,7 +50,7 @@ const userdata = [
       username:"Meacermir",
       password:"oSei3Eo5w",
       email:"YvonneRDavis@rhyta.com"
-  },
+  }
 ];
 
 const seedUsers = () => User.bulkCreate(userdata);

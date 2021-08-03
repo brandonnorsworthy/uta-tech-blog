@@ -20,13 +20,13 @@ Post.init(
       allowNull: false,
     },
     content: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
-		author_id: {
-			type: DataTypes.STRING,
+		user_id: {
+			type: DataTypes.INTEGER,
 			references: {
-				model: 'author',
+				model: 'user',
 				key: 'id',
 			},
 		},

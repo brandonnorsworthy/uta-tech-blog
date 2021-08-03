@@ -12,22 +12,22 @@ Comment.init(
       autoIncrement: true,
     },
     text: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
     },
-		author_id: {
-			type: DataTypes.STRING,
+		user_id: {
+			type: DataTypes.INTEGER,
 			references: {
-				model: 'author',
+				model: 'user',
 				key: 'id',
 			},
 		},
     post_id: {
-			type: DataTypes.STRING,
+			type: DataTypes.INTEGER,
 			references: {
 				model: 'post',
 				key: 'id',
