@@ -1,3 +1,12 @@
-{{#each galleries as |gallery|}}
-{{> gallery-details}}
-{{/each}}
+<main>
+    <ul>
+        {{#each posts as |post|}}
+        <li>
+            <h2>{{post.title}}</h2>
+            <p>{{post.cotent}}</p>
+            <p>{{post.User.username}}</p>
+            <p>{{post.date_created}}</p>
+        </li>
+        {{/each}}
+    </ul>
+</main>

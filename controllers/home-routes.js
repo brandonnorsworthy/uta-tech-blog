@@ -1,26 +1,20 @@
 const router = require('express').Router();
-const { Gallery, Painting } = require('../models');
+const { User, Post, Comment } = require('../models');
 // Import the custom middleware
 const withAuth = require('../utils/auth');
 
-// GET all galleries for homepage
+// GET all posts for homepage
 router.get('/', async (req, res) => {
   try {
-    const dbGalleryData = await Gallery.findAll({
-      include: [
-        {
-          model: Painting,
-          attributes: ['filename', 'description'],
-        },
-      ],
-    });
+    console.log('hit')
+    const dbPostData = await Post.findAll();
 
-    const galleries = dbGalleryData.map((gallery) =>
+    const posts = dbPostData.map((gallery) =>
       gallery.get({ plain: true })
     );
 
     res.render('homepage', {
-      galleries,
+      posts: posts,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
