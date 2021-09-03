@@ -1,12 +1,13 @@
-<main>
-    <ul>
-        {{#each posts as |post|}}
-        <li>
-            <h2>{{post.title}}</h2>
-            <p>{{post.cotent}}</p>
-            <p>{{post.User.username}}</p>
-            <p>{{post.date_created}}</p>
-        </li>
-        {{/each}}
-    </ul>
-</main>
+<ul>
+    {{#each posts as |post|}}
+    <li>
+        <div>
+            <h3>{{post.title}}</h3>
+            <div>
+                <p>Posted by {{post.user.username}} on {{post.date_created}}</p>
+            </div>
+        </div>
+        <p>{{post.content}}</p>
+    </li>
+    {{/each}}
+</ul>
