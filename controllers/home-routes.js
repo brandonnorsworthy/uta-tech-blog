@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 // Import the custom middleware
 const withAuth = require('../utils/auth');
+const moment = require('moment')
 
 // GET all posts for homepage
 router.get('/', async (req, res) => {
@@ -13,11 +14,13 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    const posts = dbPostData.map((gallery) =>
-      gallery.get({ plain: true })
+    const posts = dbPostData.map((element) =>
+    element.get({ plain: true })
     );
 
-    console.log(posts[0])
+    posts.forEach(element => {
+      element.date_created = moment(element.date_created).format('m/d/y');
+    });
 
     res.render('homepage', {
       posts: posts,
@@ -50,6 +53,15 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+router.get('/signup', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('signup');
 });
 
 module.exports = router;

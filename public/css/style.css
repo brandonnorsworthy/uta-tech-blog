@@ -1,7 +1,7 @@
 :root {
   --dark-color: #231010;
   --light-color: #d9ead3;
-  --grey-color: #8f8f8f;
+  --grey-color: #727272;
 }
 
 body {
@@ -35,20 +35,26 @@ header h1 {
 }
 
 main {
-  /* height: calc(100vh - 300px  ); */
+  height: calc(100vh - 200px);
   background-color: var(--light-color);
 }
 
 ul {
   list-style: none;
   background-color: var(--light-color);
+}
+
+.login-card,
+li {
   margin: 25px 50px;
+  border: 5px solid var(--dark-color);
 }
 
 li > div {
   background-color: var(--dark-color);
   padding: 15px 35px;
   display: flex;
+  height: 75px;
 }
 
 li > div > * {
@@ -59,16 +65,74 @@ li  h3 {
   white-space: nowrap;
   font-size: 40px;
   width: 75%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-li > div > div {
+li > div > p {
   width: 25%;
   display: flex;
   align-items: center;
-  justify-self: flex-end;
+  font-size: 20px;
+  justify-content: flex-end;
 }
 
 ul li > p {
-  font-size: 25px;
-  font-weight: 600;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 15px 40px;
+  line-height: 1.4;
+}
+
+.page-title {
+  white-space: nowrap;
+  font-size: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  height: 60px;
+  padding: 10px 25px;
+}
+
+.form {
+  padding: 15px 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+.form-group:first-child {
+  margin-top: 10px;
+}
+
+.form-group > :first-child {
+  font-size: 30px;
+}
+
+.form-group > :last-child {
+  margin-top: 15px;
+  font-size: 30px;
+  border: 0px;
+  padding: 10px 25px;
+}
+
+.btn-primary {
+  color: #fff;;
+  background-color: var(--grey-color);
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.btn-primary:hover {
+  cursor: pointer;
+}
+
+.form > a {
+  color: blue;
+  font-size: 30px;
+  text-decoration: none;
 }
