@@ -172,3 +172,30 @@ main {
 .post-create {
   display: none;
 }
+
+#dashboard-posts {
+  padding: 25px 50px;
+}
+
+#dashboard-posts ul {
+  width: 100%;
+}
+
+#dashboard-posts li {
+  background-color: var(--grey-color);
+  padding: 15px 50px;
+  width: 100%;
+  display: flex;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+#dashboard-posts * {
+  width: 50%;
+  color: #fff;
+}
+
+#dashboard-posts *:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
