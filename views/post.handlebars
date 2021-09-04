@@ -5,3 +5,14 @@
     </div>
     <p>{{post.content}}</p>
 </div>
+<div>
+    <ul>
+        {{#each post.comments as |comment|}}
+        <li>
+            <p>{{comment.text}}</p>
+            <p>{{comment.createdAt}}</p>
+            <p>{{comment.user.username}}</p>
+        </li>
+        {{/each}}
+    </ul>
+</div>

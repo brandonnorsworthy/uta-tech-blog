@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
         { model: User },
       ],
       order: [
-        ['createdAt', 'ASC'],
+        ['createdAt', 'DESC'],
       ]
     });
 
@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
     );
 
     posts.forEach(element => {
-      element.createdAt = moment(new Date(posts[0].createdAt).toISOString()).format('M/D/YYYY');
+      element.createdAt = moment(new Date(element.createdAt).toISOString()).format('M/D/YYYY');
     });
 
     res.render('homepage', {
@@ -36,12 +36,33 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/post/:id', async (req, res) => {
-  console.log('try')
   try {
-    const dbPostData = await Post.findByPk(req.params.id);
+    const dbPostData = await Post.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [
+        { model: User },
+        {
+          model: Comment,
+          include: [
+            { model: User }
+          ]
+        },
+      ],
+    });
+    if (!dbPostData) {
+      res.status(400).json({ messgae: 'post does not exsist' });
+    }
 
-    const post = dbPostData.get({ plain: true });
-    console.log('ttttt')
+    const post = dbPostData.get({ plain: true })
+
+    post.createdAt = moment(new Date(post.createdAt).toISOString()).format('M/D/YYYY');
+
+    post.comments.forEach(element => {
+      element.createdAt = moment(new Date(element.createdAt).toISOString()).format('M/D/YYYY');
+    });
+
     res.render('post', { post: post, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
