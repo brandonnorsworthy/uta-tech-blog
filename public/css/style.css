@@ -56,6 +56,10 @@ main {
   border: 5px solid var(--dark-color);
 }
 
+.home-content li:last-child {
+  margin-bottom: 0px;
+}
+
 .home-content li>div {
   background-color: var(--dark-color);
   padding: 15px 35px;
@@ -209,4 +213,50 @@ main {
 #dashboard-posts *:last-child {
   display: flex;
   justify-content: flex-end;
+}
+
+.post {
+  margin: 25px 50px;
+  border: 5px solid var(--dark-color);
+}
+
+.post div:first-child {
+  white-space: nowrap;
+  font-size: 30px;
+  padding: 15px 50px;
+  display: flex;
+  color: var(--light-color);
+  background-color: var(--dark-color);
+  align-items: center;
+}
+
+.post div:first-child h3 {
+  width: 75%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.post div:first-child p {
+  font-size: 25px;
+  justify-content: flex-end;
+}
+
+.post>p {
+  padding: 20px 50px;
+  font-size: 25px;
+}
+
+.post ul {
+  border-top: 25px solid var(--dark-color);
+}
+
+.post li {
+  padding: 20px 50px;
+  font-size: 25px;
+  border-bottom: 5px solid var(--dark-color);
+}
+
+.post li:last-child {
+  border-bottom: 0px;
 }
