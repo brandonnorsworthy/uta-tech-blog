@@ -97,6 +97,10 @@ main {
   cursor: pointer;
 }
 
+.home-content li:hover div * {
+  color: #fff;
+}
+
 .page-title {
   white-space: nowrap;
   font-size: 30px;
@@ -179,15 +183,22 @@ main {
 
 #dashboard-posts ul {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 #dashboard-posts li {
+  margin: 15px;
   background-color: var(--grey-color);
   padding: 15px 50px;
   width: 100%;
   display: flex;
   border-radius: 10px;
   font-size: 20px;
+}
+
+#dashboard-posts li:hover {
+  cursor: pointer;
 }
 
 #dashboard-posts * {
