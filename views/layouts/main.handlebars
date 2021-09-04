@@ -7,6 +7,7 @@
   <title>Tech Blog</title>
   <link rel="stylesheet" type="text/css" href="/css/reset.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="shortcut icon" href="favicon.ico?" type="image/x-icon">
 </head>
 
 <body>
@@ -14,7 +15,7 @@
     <nav>
       <a href="/">Home</a>
       {{#if loggedIn}}
-      <a href="/">Daskboard</a>
+      <a href="/dashboard">Dashboard</a>
       <button id="logout" class="btn-no-style">Logout</button>
       {{else}}
       <a href="/login">Login</a>
