@@ -76,11 +76,14 @@ li h3 {
 }
 
 li>div>p {
-  width: 25%;
-  display: flex;
+  display: 25%;
   align-items: center;
   font-size: 20px;
+  display: flex;
   justify-content: flex-end;
+  align-items: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 ul li>p {
