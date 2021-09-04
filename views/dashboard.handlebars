@@ -1,3 +1,33 @@
-<div>
-    <button></button>
+<div class="row justify-space-between-md">
+    <div class="posts">
+        <ul>
+            {{#each posts as |post|}}
+            <li id={{post.id}}>
+                <p>{{post.title}}</p>
+                <p>{{post.created_at}}</p>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    <div class="login-card post-create">
+        <h2 class="page-title">Create New Post</h2>
+        <form class="form create-post-form">
+            <div class="form-group">
+                <label for="post-title">Title:</label>
+                <input class="form-input" type="text" id="post-title" />
+            </div>
+            <div class="form-group">
+                <label for="post-content">Content:</label>
+                <textarea class="form-input" type="password" id="post-content"></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+    <div class="new-post">
+        <button class="btn btn-primary" id="new-post">+ New Post</button>
+    </div>
 </div>
+
+<script src="./js/dashboard.js"></script>
