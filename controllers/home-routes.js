@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
         { model: User },
       ],
       order: [
-        ['createdAt', 'DESC'],
+        ['createdAt', 'ASC'],
       ]
     });
 
@@ -35,14 +35,14 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET one gallery
-// Use the custom middleware before allowing the user to access the gallery
-router.get('/post/:id', withAuth, async (req, res) => {
+router.get('/post/:id', async (req, res) => {
+  console.log('try')
   try {
     const dbPostData = await Post.findByPk(req.params.id);
 
-    const posts = dbPostData.get({ plain: true });
-    res.render('post', { post, loggedIn: req.session.loggedIn });
+    const post = dbPostData.get({ plain: true });
+    console.log('ttttt')
+    res.render('post', { post: post, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
