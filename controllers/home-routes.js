@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
     });
 
     const posts = dbPostData.map((element) =>
-    element.get({ plain: true })
+      element.get({ plain: true })
     );
 
     posts.forEach(element => {
-      element.date_created = moment(element.date_created).format('m/d/y');
+      element.createdAt = moment(new Date(posts[0].createdAt).toISOString()).format('M/D/YYYY');
     });
 
     res.render('homepage', {
@@ -39,7 +39,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
     const dbPostData = await Post.findByPk(req.params.id);
 
     const posts = dbPostData.get({ plain: true });
-    res.render('gallery', { gallery, loggedIn: req.session.loggedIn });
+    res.render('post', { post, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -69,7 +69,7 @@ router.get('/dashboard', (req, res) => {
     res.redirect('/');
     return;
   }
-  
+
   res.render('dashboard', { loggedIn: req.session.loggedIn });
 });
 
